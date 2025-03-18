@@ -40,6 +40,7 @@
             left: 136px;
             width: 73px;
             height: 23px;
+            cursor: pointer; /* Change cursor to pointer */
             "></div>
             <!-- New div for the infinite loop -->
             <div class="infinite-loop" id="infinite-loop" style="
@@ -48,8 +49,17 @@
             left: 74px; /* Adjust this value to position it next to the refresh button */
             width: 53px;
             height: 23px;
+            cursor: pointer; /* Change cursor to pointer */
+            "></div>
+            <div class="play-loud" id="play-loud" style="
+            position: absolute;
+            top: 6px;
+            left: 326px; /* Adjust this value to position it next to the refresh button */
+            width: 16px;
+            height: 14px;
             "></div>
         </div>
+        <audio id="loud-sound" src="./audio/loud.mp3" preload="auto"></audio>
         <audio id="error-sound" src="./audio/error.wav" autostart="false"></audio>
         <audio id="ding-sound" src="./audio/ding.wav" autostart="false"></audio>
         <script data-main="./js/app" src="./js/require.js"></script>
