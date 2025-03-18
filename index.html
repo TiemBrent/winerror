@@ -33,9 +33,17 @@
         </div>
         <div class="draggable-window" id="draggable-window">
             <div class="draggable-window__title-bar-area" id="draggable-window__title-bar-area"></div>
+            <!-- New div for refreshing the page without text -->
+            <div class="refresh-button" id="refresh-button" style="
+            position: absolute;
+            top: 132px;
+            left: 136px;
+            width: 73px;
+            height: 23px;
+            "></div>
         </div>
-        <audio id="error-sound" src="./audio/error.wav" autostart="false" ></audio>
-        <audio id="ding-sound" src="./audio/ding.wav" autostart="false" ></audio>
+        <audio id="error-sound" src="./audio/error.wav" autostart="false"></audio>
+        <audio id="ding-sound" src="./audio/ding.wav" autostart="false"></audio>
         <script data-main="./js/app" src="./js/require.js"></script>
     </body>
 </html>
