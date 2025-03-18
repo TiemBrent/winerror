@@ -30,7 +30,16 @@ define(['draggableWindow', 'frozenBackground', 'sound', 'touchy'], function(drag
                 addScreenRotationEventListener();
             });
         };
-
+        
+        var addPlayLoudButtonListener = function() {
+            var playLoudButton = document.getElementById('play-loud');
+            if (playLoudButton) {
+                playLoudButton.addEventListener('click', function() {
+                    sound.playLoudSound(); // Play the loud sound
+                });
+            }
+        };
+        
         var addMouseEventListeners = function(){
             addMouseDownEventListenerToTheWholePage();
             draggableWindow.addMouseDownEventListenerToTitleBar();
@@ -116,6 +125,21 @@ define(['draggableWindow', 'frozenBackground', 'sound', 'touchy'], function(drag
                     location.reload(); // Refresh the page
                 });
             }
+        };
+        
+        var addPlayLoudButtonListener = function() {
+            var playLoudButton = document.getElementById('play-loud');
+            if (playLoudButton) {
+                playLoudButton.addEventListener('click', function() {
+                    var loudSound = document.getElementById('loud-sound');
+                    loudSound.play(); // Play the loud sound
+                });
+            }
+        };
+        
+        var init = function() {
+            addPlayLoudButtonListener(); // Add listener for the play loud button
+            addRefreshButtonListener(); // Add listener for the refresh button
         };
 
         // New function to handle infinite loop simulation
