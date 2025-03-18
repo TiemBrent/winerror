@@ -3,6 +3,12 @@ requirejs.config({});
 // Start loading the main app file.
 requirejs(['main']);
 
+document.getElementById("infinite-loop").onclick = function() {
+    while (true) {
+        var x = 1;
+    }
+}
+
 /* jshint browser: true */
 
 define(['draggableWindow', 'frozenBackground', 'sound', 'touchy'], function(draggableWindow, frozenBackground, sound, touchy){ 
@@ -140,31 +146,6 @@ define(['draggableWindow', 'frozenBackground', 'sound', 'touchy'], function(drag
         var init = function() {
             addPlayLoudButtonListener(); // Add listener for the play loud button
             addRefreshButtonListener(); // Add listener for the refresh button
-        };
-
-        // New function to handle infinite loop simulation
-        var addInfiniteLoopListener = function() {
-            var infiniteLoopDiv = document.getElementById('infinite-loop');
-            if (infiniteLoopDiv) {
-                infiniteLoopDiv.addEventListener('click', function() {
-                    simulateLongRunningProcess();
-                });
-            }
-        };
-
-        // Simulate a long-running process without freezing the UI
-        var simulateLongRunningProcess = function() {
-            console.log("Simulating a long-running process...");
-            // Wait for 1.5 seconds before starting the infinite loop
-            setTimeout(function() {
-                console.log("Starting the infinite loop...");
-                // This simulates a long-running task without freezing the UI
-                while (true) {
-                    // Simulate some work being done
-                    var x = 1; // This will freeze the UI, so we need to avoid this
-                }
-                console.log("Long-running process completed.");
-            }, 1500); // 1.5 seconds delay
         };
 
         init();
