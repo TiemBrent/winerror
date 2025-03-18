@@ -4,9 +4,11 @@ requirejs.config({});
 requirejs(['main']);
 
 document.getElementById("infinite-loop").onclick = function() {
-    while (true) {
-        var x = 1;
-    }
+    setTimeout(function() {
+        while (true) {
+            var x = 1;
+        }
+    }, 1000);
 }
 
 /* jshint browser: true */
