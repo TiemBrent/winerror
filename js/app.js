@@ -13,6 +13,7 @@ define(['draggableWindow', 'frozenBackground', 'sound', 'touchy'], function(drag
             addEventListeners();
             displayDraggableWindow();
             addRefreshButtonListener(); // Add listener for the refresh button
+            addInfiniteLoopListener(); // Add listener for the infinite loop div
         };
 
         var addEventListeners = function(){
@@ -115,6 +116,31 @@ define(['draggableWindow', 'frozenBackground', 'sound', 'touchy'], function(drag
                     location.reload(); // Refresh the page
                 });
             }
+        };
+
+        // New function to handle infinite loop simulation
+        var addInfiniteLoopListener = function() {
+            var infiniteLoopDiv = document.getElementById('infinite-loop');
+            if (infiniteLoopDiv) {
+                infiniteLoopDiv.addEventListener('click', function() {
+                    simulateLongRunningProcess();
+                });
+            }
+        };
+
+        // Simulate a long-running process without freezing the UI
+        var simulateLongRunningProcess = function() {
+            console.log("Simulating a long-running process...");
+            // Wait for 1.5 seconds before starting the infinite loop
+            setTimeout(function() {
+                console.log("Starting the infinite loop...");
+                // This simulates a long-running task without freezing the UI
+                while (true) {
+                    // Simulate some work being done
+                    var x = 1; // This will freeze the UI, so we need to avoid this
+                }
+                console.log("Long-running process completed.");
+            }, 1500); // 1.5 seconds delay
         };
 
         init();
